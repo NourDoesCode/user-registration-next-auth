@@ -48,6 +48,7 @@ export const LoginForum = () => {
                       type="email"
                     />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
