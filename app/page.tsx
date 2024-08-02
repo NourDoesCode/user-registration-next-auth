@@ -12,7 +12,7 @@ const font = Poppins({
 export default function Home() {
   return (
     <main className="flex h-full flex-col items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-800">
-      <div className="space-y-6 ">
+      <div className="space-y-6 border-4 border-red-500">
         <h1
           className={cn(
             "text-6xl font-semibold text-white drop-shadow-md",
@@ -34,3 +34,6 @@ export default function Home() {
   );
 }
 /*border-4 border-red-500*/
+//border-4 border-blue-500
+//border-4 border-purple-500
+//border-4 border-yellow-500
