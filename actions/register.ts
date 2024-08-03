@@ -7,5 +7,5 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   if (!validatedFields.success) {
     return { error: "Invalid credentials!" };
   }
-  return { success: "Logged in successfully!" };
+  return { success: "Logged in successfully" };
 };
