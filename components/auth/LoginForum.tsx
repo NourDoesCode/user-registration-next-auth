@@ -16,6 +16,9 @@ import {
 
 import { LoginSchema } from "@/schemas";
 import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import FormError from "../FormError";
+import FormSuccess from "../FormSuccess";
 export const LoginForum = () => {
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
@@ -25,6 +28,9 @@ export const LoginForum = () => {
     },
   });
 
+  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    console.log(values);
+  };
   return (
     <CardWrapper
       headerLabel="Welcome Back!"
@@ -33,11 +39,11 @@ export const LoginForum = () => {
       showSocial
     >
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(() => {})} className="space-y-6">
-          <div className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <div className="space-y-4 ">
             <FormField
               control={form.control}
-              name="email"
+              name="email" //name for the field(like an ID)
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
@@ -52,9 +58,29 @@ export const LoginForum = () => {
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>password</FormLabel>
+                  <FormControl>
+                    <Input {...field} placeholder="******" type="password" />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
           </div>
+          <FormError message="" />
+          <FormSuccess message="" />
+          <Button type="submit" className="w-full">
+            Login
+          </Button>
         </form>
       </Form>
     </CardWrapper>
   );
 };
+//Invalid credentials!
+//Logged in successfully!
