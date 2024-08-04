@@ -17,6 +17,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
+  password      String? //optional bc if user logs in or signs up with google or github they won't use a password
   accounts      Account[]
   @@map("users")
 }
